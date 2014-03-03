@@ -1,0 +1,7 @@
+parameters:
+#    ssstrz_orm.example.class: Ssstrz\OrmBundle\Example
+
+services:
+#    ssstrz_orm.example:
+#        class: %ssstrz_orm.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,4 @@
+ssstrz_orm:
+    resource: "@SsstrzOrmBundle/Resources/config/routing.yml"
+    prefix:   /
+
