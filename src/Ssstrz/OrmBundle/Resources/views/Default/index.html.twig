@@ -1,1 +1,19 @@
-Hello {{ name }}!
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<ol>
+    {% for author in authors %}
+    <li>
+        {{ author.name |capitalize }}, {{ author.surname|capitalize }}
+    </li>
+    {% endfor %}
+</ol>
+        <hr>
+<ol>
+    {% for book in books %}
+    <li>
+        {{ book.isbn|number_format }}
+    </li>
+    {% endfor %}
+</ol>
+{% endblock %}
