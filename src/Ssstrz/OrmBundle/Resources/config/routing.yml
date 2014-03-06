@@ -1,3 +1,7 @@
 ssstrz_orm_homepage:
     pattern:  /
     defaults: { _controller: SsstrzOrmBundle:Default:index }
+    
+ssstrz_orm_check_order:
+    pattern:  /order
+    defaults: { _controller: SsstrzOrmBundle:Default:checkOrder }

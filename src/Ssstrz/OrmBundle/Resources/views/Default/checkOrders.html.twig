@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<ol>
+    {% for t in table1 %}
+    <li>
+        {{ dump(t) }}
+    </li>
+    {% endfor %}
+</ol>
+        <hr>
+<ol>
+    {% for t in table2 %}
+    <li>
+        {{ dump(t) }}
+    </li>
+    {% endfor %}
+</ol>
+{% endblock %}

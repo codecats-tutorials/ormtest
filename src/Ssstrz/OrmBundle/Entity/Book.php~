@@ -22,16 +22,16 @@ class Book
     private $id;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="isbn", type="integer")
+     * @ORM\Column(name="isbn", type="string", length=15)
      */
     private $isbn;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="price", type="decimal")
+     * @ORM\Column(name="price", type="float")
      */
     private $price;
 
@@ -41,10 +41,17 @@ class Book
      * @ORM\JoinColumn(name="book_id", referencedColumnName="id")
      */
     private $authors;
+    
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="Ssstrz\OrmBundle\Entity\Ordered", mappedBy="item")
+     */
+    private $shipping;
 
     public function __construct() 
     {
-        $this->authors = \Doctrine\Common\Collections\ArrayCollection();
+        $this->authors = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->shipping = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
      * Get id

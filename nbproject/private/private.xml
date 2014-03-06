@@ -3,7 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/t/www/vhosts/orm.t/htdocs/Symfony/app/AppKernel.php</file>
+            <file>file:/home/t/www/vhosts/orm.t/htdocs/Symfony/src/Ssstrz/OrmBundle/Entity/User.php</file>
+            <file>file:/home/t/www/vhosts/orm.t/htdocs/Symfony/src/Ssstrz/OrmBundle/Resources/views/Default/index.html.twig</file>
+            <file>file:/home/t/www/vhosts/orm.t/htdocs/Symfony/src/Ssstrz/OrmBundle/Controller/DefaultController.php</file>
+            <file>file:/home/t/www/vhosts/orm.t/htdocs/Symfony/src/Ssstrz/OrmBundle/Entity/Book.php</file>
+            <file>file:/home/t/www/vhosts/orm.t/htdocs/Symfony/src/Ssstrz/OrmBundle/Resources/config/routing.yml</file>
             <file>file:/home/t/www/vhosts/orm.t/htdocs/Symfony/app/config/routing.yml</file>
         </group>
     </open-files>

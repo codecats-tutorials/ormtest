@@ -41,10 +41,17 @@ class Book
      * @ORM\JoinColumn(name="book_id", referencedColumnName="id")
      */
     private $authors;
+    
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="Ssstrz\OrmBundle\Entity\Ordered", mappedBy="item")
+     */
+    private $shipping;
 
     public function __construct() 
     {
         $this->authors = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->shipping = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
      * Get id
@@ -133,5 +140,38 @@ class Book
     public function getAuthors()
     {
         return $this->authors;
+    }
+
+    /**
+     * Add shipping
+     *
+     * @param \Ssstrz\OrmBundle\Entity\Ordered $shipping
+     * @return Book
+     */
+    public function addShipping(\Ssstrz\OrmBundle\Entity\Ordered $shipping)
+    {
+        $this->shipping[] = $shipping;
+
+        return $this;
+    }
+
+    /**
+     * Remove shipping
+     *
+     * @param \Ssstrz\OrmBundle\Entity\Ordered $shipping
+     */
+    public function removeShipping(\Ssstrz\OrmBundle\Entity\Ordered $shipping)
+    {
+        $this->shipping->removeElement($shipping);
+    }
+
+    /**
+     * Get shipping
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
     }
 }

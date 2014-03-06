@@ -51,13 +51,20 @@ class User
 
     /**
      *
-     * @ORM\ManyToMany(targetEntity="Ssstrz\OrmBundle\Entity\Book", mappedBy="authors")
+     * @ORM\ManyToMany(targetEntity="Book", mappedBy="authors")
      */
     private $books;
+    
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="Ssstrz\OrmBundle\Entity\Ordered", mappedBy="user")
+     */
+    private $orders;
     
     public function __construct() 
     {
         $this->books = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->orders = new \Doctrine\Common\Collections\ArrayCollection();
     }
     /**
      * Get id
@@ -192,5 +199,38 @@ class User
     public function getBooks()
     {
         return $this->books;
+    }
+
+    /**
+     * Add orders
+     *
+     * @param \Ssstrz\OrmBundle\Entity\Ordered $orders
+     * @return User
+     */
+    public function addOrder(\Ssstrz\OrmBundle\Entity\Ordered $orders)
+    {
+        $this->orders[] = $orders;
+
+        return $this;
+    }
+
+    /**
+     * Remove orders
+     *
+     * @param \Ssstrz\OrmBundle\Entity\Ordered $orders
+     */
+    public function removeOrder(\Ssstrz\OrmBundle\Entity\Ordered $orders)
+    {
+        $this->orders->removeElement($orders);
+    }
+
+    /**
+     * Get orders
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getOrders()
+    {
+        return $this->orders;
     }
 }
