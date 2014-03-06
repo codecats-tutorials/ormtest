@@ -31,12 +31,13 @@ class Ordered
     /**
      * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Ssstrz\OrmBundle\Entity\User", inversedBy="orders")
+     * @ORM\ManyToOne(targetEntity="Ssstrz\OrmBundle\Entity\User", inversedBy="orders", cascade={"all"}, fetch="EAGER")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Ssstrz\OrmBundle\Entity\Book", inversedBy="shipping")
+     * @ORM\ManyToOne(targetEntity="Ssstrz\OrmBundle\Entity\Book", inversedBy="shipping", cascade={"all"}, fetch="EAGER")
      */
     private $item;
 

@@ -13,29 +13,36 @@ class DefaultController extends Controller
     public function checkOrderAction()
     {
         $em = $this->getDoctrine()->getManager();
+        if (1 === 0) {
+            $book = $em->getRepository('SsstrzOrmBundle:Book')->find(2);
+            $user = $em->getRepository('SsstrzOrmBundle:User')->find(1);
+            $order = new Ordered();
+            $order->setItem($book);
+            $book->addShipping($order);
+
+
+            $order->setUser($user);
+            $user->addOrder($order);
+
+            $order->setDate(new \DateTime());
+            $order->setStatus(false);
+
+            $em->persist($user);
+            $em->persist($order);
+            $em->persist($book);
+            $em->flush();
+        }
         $book = $em->getRepository('SsstrzOrmBundle:Book')->find(2);
         $user = $em->getRepository('SsstrzOrmBundle:User')->find(1);
-        $order = new Ordered();
-        $order->setItem($book);
-        $book->addShipping($order);
         
-        
-        $order->setUser($user);
-        $user->addOrder($order);
-       
-        $order->setDate(new \DateTime());
-        $order->setStatus(false);
-        
-        $em->persist($user);
-        $em->persist($order);
-        $em->persist($book);
-        $em->flush();
+        $orders = $book->getShipping();
+        $orders2 = $user->getOrders();
         
         return $this->render(
                 'SsstrzOrmBundle:Default:checkOrders.html.twig',
                 array(
-                    'table1'   => array(),
-                    'table2'     => array()
+                    'table1'   => $orders,
+                    'table2'     => $orders2
                 )
         );
     }

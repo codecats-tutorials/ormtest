@@ -4,7 +4,7 @@
 <ol>
     {% for t in table1 %}
     <li>
-        {{ dump(t) }}
+        {{ dump(t.user.name) }}
     </li>
     {% endfor %}
 </ol>
@@ -12,7 +12,7 @@
 <ol>
     {% for t in table2 %}
     <li>
-        {{ dump(t) }}
+        {{ dump(t.item.isbn) }}
     </li>
     {% endfor %}
 </ol>
